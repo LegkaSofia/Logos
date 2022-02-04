@@ -10,27 +10,16 @@ namespace Calculator
             double b;
             double c;
 
-            static double add(double a, double b)
-            {
-                return a + b;
-            }
-
-            static double minus(double a, double b)
-            {
-                return a - b;
-            }
-
-            static double dilen(double a, double b)
-            {
-                return a / b;
-            }
-
-            static double mnoz(double a, double b)
-            {
-                return a * b;
-            }
-
             Console.WriteLine("Hello world!");
+
+            Console.WriteLine("Chose: + - * / ");
+            string action = Console.ReadLine();
+
+            if (action != "+" && action != "-" && action != "*" && action != "/")
+            {
+                Console.WriteLine("Enter the correct character!");
+                return;
+            }
 
             Console.WriteLine("Enter a: ");
             a = double.Parse(Console.ReadLine());
@@ -38,14 +27,9 @@ namespace Calculator
             Console.WriteLine("Enter b: ");
             b = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Chose: + - * / ");
-            string action = Console.ReadLine();
-
-
-
             if (action == "+")
             {
-                c = add(a, b);
+                c = Add(a, b);
                 Console.WriteLine("Result: ");
                 Console.WriteLine("{0}+{1}={2}", a, b, c);
             }
@@ -53,7 +37,7 @@ namespace Calculator
 
             if (action == "-")
             {
-                c = minus(a, b);
+                c = Minus(a, b);
                 Console.WriteLine("Result: ");
                 Console.WriteLine("{0}-{1}={2}", a, b, c);
             }
@@ -61,7 +45,7 @@ namespace Calculator
 
             if (action == "*")
             {
-                c = mnoz(a, b);
+                c = Mnoz(a, b);
                 Console.WriteLine("Result: ");
                 Console.WriteLine("{0}*{1}={2}", a, b, c);
             }
@@ -69,7 +53,6 @@ namespace Calculator
 
             if (action == "/")
             {
-                c = dilen(a, b);
                 if (b == 0)
                 {
                     Console.WriteLine("Result: ");
@@ -77,16 +60,31 @@ namespace Calculator
                 }
                 else
                 {
+                    c = Dilen(a, b);
                     Console.WriteLine("Result: ");
                     Console.WriteLine("{0}/{1}={2}", a, b, c);
                 }
             }
+        }
 
-            if (action != "+" && action != "-" && action != "*" && action != "/")
-            {
-                Console.WriteLine("Enter the correct character!");
-            }
+        static double Add(double a, double b)
+        {
+            return a + b;
+        }
 
+        static double Minus(double a, double b)
+        {
+            return a - b;
+        }
+
+        static double Dilen(double a, double b)
+        {
+            return a / b;
+        }
+
+        static double Mnoz(double a, double b)
+        {
+            return a * b;
         }
     }
 }
