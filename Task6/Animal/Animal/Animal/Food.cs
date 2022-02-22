@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Animal
 {
-    interface IEatable 
+    enum Food
     {
-        void Eat(Food food);
+        Meat, 
+        Apple,
+        Milk
     }
 }

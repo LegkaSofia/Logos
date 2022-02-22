@@ -4,29 +4,27 @@ using System.Text;
 
 namespace Animal
 {
-    class Dog : IAnimal
+    class Dog : IAnimal, IHealth
     {
+        public int Health { get; set; }
+
         public void Drink()
         {
-            //throw new NotImplementedException();
             Console.WriteLine("Dog drinks water");
         }
 
-        public void Eat()
+        public void Eat(Food food)
         {
-            //throw new NotImplementedException();
-            Console.WriteLine("Dog eats maet");
+            Console.WriteLine("Dog eats {0}", food);
         }
 
         public void Sleep()
         {
-            //throw new NotImplementedException();
             Console.WriteLine("Dog sleep");
         }
 
         public void Speak()
         {
-            //throw new NotImplementedException();
             Console.WriteLine("Dog spek Gav");
         }
     }
