@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Animal
+﻿namespace Animal
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Dog dog = new Dog();
             dog.Drink();
-            dog.Eat();
+            dog.Eat(Food.Meat);
             dog.Sleep();
             dog.Speak();
         }

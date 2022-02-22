@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Animal
 {
-    interface IEatable 
+    interface IHealth
     {
-        void Eat(Food food);
+        int Health { get; set; }
     }
 }
