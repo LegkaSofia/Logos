@@ -1,15 +1,13 @@
-﻿using System.Collections.Generic;
-
-namespace Shop.Models
+﻿namespace Shop.Models
 {
     internal class Check
     {
         public Check()
         {
-            Products = new List<Product>();
+            Products = new ProductCollection();
         }
 
-        public List<Product> Products { get; set; }
+        public ProductCollection Products { get; set; }
 
         public void Add(Product product)
         {
