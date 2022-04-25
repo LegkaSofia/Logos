@@ -3,23 +3,44 @@ using System.Threading;
 
 namespace Bar
 {
-    internal class Bar
+    class Bar
     {
-        public Bar(char symbol)
+        private object @lock;
+        public Bar(char symbol, object @lock)
         {
             Symbol = symbol;
+            Height = 2;
+            this.@lock = @lock;
         }
 
-        public char Symbol { get; set; }
+        public char Symbol { get; }
+
+        public int Height { get; }
+
+        public bool Finished { get; private set; }
 
         public void Start()
         {
             var width = Console.WindowWidth;
-            for (int i = 0; i < width; i++)
+            var line = 0;
+            var position = 0;
+            for (var i = 0; i < width; i++)
             {
-                Console.Write(Symbol);
+                for (var j = 0; j < Height; j++)
+                {
+                    lock (@lock)
+                    {
+                        Console.SetCursorPosition(position, line + j);
+                        Console.Write(Symbol);
+                    }
+                }
+
+                position++;
                 Thread.Sleep(100);
             }
+
+            Finished = true;
         }
     }
+
 }
