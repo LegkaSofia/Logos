@@ -9,6 +9,7 @@ namespace Threads
         {
             Thread t = new Thread(Method1);
             t.Start();
+            t.Join();
             for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine("{0} - {1}", nameof(Main), i);
