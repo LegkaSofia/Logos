@@ -1,6 +1,5 @@
 ﻿using Shop.Enums;
 using Shop.Models;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Shop
@@ -9,7 +8,7 @@ namespace Shop
     {
         public ProductService()
         {
-            Products = new List<Product>
+            Products = new ProductCollection
             {
                 new Product(WayToBuyProduct.ShopWay | WayToBuyProduct.PickUpWay) { Name = "Apple", Price = 5 },
                 new Product(WayToBuyProduct.ShopWay) { Name = "Meat", Price = 58 },
@@ -17,21 +16,21 @@ namespace Shop
             };
         }
 
-        public List<Product> Products { get; set; }
+        public ProductCollection Products { get; set; }
 
         public void Add(Product product)
         {
-            Products.Add(product);
+            Products += product;
         }
 
-        public List<Product> GetAll()
+        public ProductCollection GetAll()
         {
             return Products;
         }
 
         public void Remove(Product product)
         {
-            Products.Remove(product);
+            Products -= product;
         }
 
         public Product GetByName(string name)

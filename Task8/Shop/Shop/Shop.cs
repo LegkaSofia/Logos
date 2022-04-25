@@ -1,7 +1,6 @@
 ﻿using Shop.Enums;
 using Shop.Models;
 using System;
-using System.Collections.Generic;
 
 namespace Shop
 {
@@ -25,7 +24,7 @@ namespace Shop
         {
             int i = 1;
 
-            List<Product> products = ProductService.GetAll();
+            ProductCollection products = ProductService.GetAll();
 
             foreach (Product product in products)
             {

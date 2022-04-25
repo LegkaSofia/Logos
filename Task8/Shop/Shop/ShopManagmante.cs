@@ -66,8 +66,8 @@ namespace Shop
             Console.WriteLine("Select product number to delete: ");
 
             int number = int.Parse(Console.ReadLine());
-            
-            List<Product> products = Shop.ProductService.GetAll();
+
+            ProductCollection products = Shop.ProductService.GetAll();
             
             Product productToDelete = products[number - 1];
             
@@ -87,7 +87,7 @@ namespace Shop
             Console.WriteLine("Select product number to add to check: ");
             string numbers = Console.ReadLine();
             string[] splitedNumbers = numbers.Split(',');
-            List<Product> products = Shop.ProductService.GetAll();
+            ProductCollection products = Shop.ProductService.GetAll();
             foreach (string number in splitedNumbers)
             {
                 Product productToAdd = products[int.Parse(number) - 1];
@@ -105,7 +105,7 @@ namespace Shop
                 return;
             }
 
-            List<Product> products = check.Products;
+            ProductCollection products = check.Products;
             foreach (Product product in products)
             {
                 Console.WriteLine("{0} - {1}", product.Name, product.Price);
