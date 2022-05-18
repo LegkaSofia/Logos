@@ -1,0 +1,28 @@
+﻿@model EditBookModel
+<div class="container">
+    <form method="post" action="EditBook" class="form-group">
+        <fieldset>
+            <input type="hidden" name="Book.Id" value="@Model.Book.Id" />
+            <legend>Edit Book</legend>
+            <div>
+                <label for="Name">Name:</label>
+                <input type="text" name="Book.Name" value="@Model.Book.Name" class="form-control" />
+            </div>
+            <div>
+                <label for="Author">Author:</label>
+                <input type="text" name="Book.Author" value="@Model.Book.Author" class=" form-control" />
+            </div>
+            <div>
+                <label for="Genre">Genre:</label>
+                <input type="text" name="Book.Genre" value="@Model.Book.Genre" class=" form-control" />
+            </div>
+            <div>
+                <label for="Content">Content:</label>
+                <input type="text" name="Book.Content" value="@Model.Book.Content" class=" form-control" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" class="btn btn-success" />
+            </div>
+        </fieldset>
+    </form>
+</div>
