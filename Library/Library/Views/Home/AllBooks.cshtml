@@ -1,0 +1,28 @@
+﻿@model BookViewModel
+<div class="container align-content-center">
+    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+    {
+        <div class="container">
+            <a asp-action="AddBook" asp-controller="Home" class="btn btn-success">
+                Add Book
+            </a>
+        </div>
+    }
+    <ul class="list-group">
+        @foreach (var book in Model.Books)
+        {
+            <li class="list-group-item d-inline-flex flex-column">
+
+                <div class="d-inline-flex flex-row">
+                    @Html.ActionLink(book.Name, "BookDetails", "Home", new Dictionary<string, string> { ["id"] = book.Id.ToString() }, new { @class = "page-link flex-grow-1" })
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        @Html.ActionLink("U", "EditBook", "Home", new Dictionary<string, string> { ["id"] = book.Id.ToString() }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("X", "DeleteBook", "Home", new Dictionary<string, string> { ["id"] = book.Id.ToString() }, new { @class = "btn btn-danger" })
+                    }
+                </div>
+                <h6 class="card-header flex-shrink-0 flex-wrap">@book.Author</h6>
+            </li>
+        }
+    </ul>
+</div>

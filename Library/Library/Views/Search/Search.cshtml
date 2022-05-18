@@ -1,0 +1,28 @@
+﻿@model Library.Controllers.BookSearchModel
+@{
+    ViewData["Title"] = $"{@Model.Query}: Search";
+}
+
+<div class="container align-content-center">
+    @if (Model.Books.Count > 0)
+    {
+        <div class="text-dark">
+            <span class="font-weight-bold">@Model.Books.Count</span> results for <span class="font-weight-bold">"@Model.Query"</span> 
+        </div>
+        <ul class="list-group">
+            @foreach (var book in Model.Books)
+            {
+            <li class="list-group-item">
+                @Html.ActionLink(book.Name, "BookDetails", "Home", new Dictionary<string, string> { ["id"] = book.Id.ToString() }, new { @class = "page-link flex-grow-1" })
+                <h6 class="card-header">@book.Author</h6>
+            </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <div class="text-dark">
+            No results for <span class="font-weight-bold">@Model.Query</span>
+        </div>
+    }
+</div>

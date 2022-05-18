@@ -1,0 +1,25 @@
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "All Books";
+}
+<div class="container">
+   
+    <form asp-controller="Search" asp-action="Search" class="form-inline">
+        <legend class="card-header">Find book</legend>
+        <input type="text" name="query" class="form-control mr-1"/>
+        <input type="submit" value="Search" class="form-control btn-success"/>
+    </form>
+    <div class="d-inline-flex flex-row">
+        <img src="/main-photo.jpg" alt="Alternate Text" class="img-thumbnail mr-3" />
+        <div>
+            Сайт Library зібрав твори різних за жанром і часом українських письменників-класиків і сучасних авторів.
+            У нас ви зможете як завантажити книги у найбільш популярних форматах, так і читати онлайн безпосередньо в
+            нашій бібліотеці.
+            На сторінках Library ви зможете ознайомитися з біографією письменників України, дізнатися їх творчий шлях,
+            а також поділитися своїми власними враженнями, залишивши коментарі автору, або його творам.
+            Окремий розділ Самвидав дозволяє безкоштовно опублікувати свої власні книги,
+            і вже зібрав велику аудиторію. Запрошуємо всіх авторів реєструватися і заявити про себе!
+            Наш сайт був створений з любов’ю до рідної мови, виключно з метою донесення до читача чудових творінь талановитих українців.
+        </div>
+    </div>
+</div> 
